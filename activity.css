@@ -1,0 +1,326 @@
+/* ===== 폰트 및 기본 초기화 ===== */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  background-color: #f2f7f7;
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== 1. 공통 네비게이션 바 (상단 고정 레이아웃) ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #008b8b;
+}
+
+.navbar .logo {
+  font-family: "Batang", "바른바탕", serif; /* 하와이로(路) 로고 바탕체 적용 */
+  color: #008b8b;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.navbar .nav-links a {
+  font-size: 16px;
+  color: #555555;
+  padding-bottom: 5px;
+}
+
+/* 마우스를 올리거나 현재 활성화된 메뉴(액티비티) 강조 */
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  color: #008b8b;
+  font-weight: bold;
+  border-bottom: 3px solid #008b8b;
+}
+
+.navbar .login-btn {
+  border: 1px solid #008b8b;
+  color: #008b8b;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar .login-btn:hover {
+  background-color: #008b8b;
+  color: #ffffff;
+}
+
+.banner {
+  background-image: url("바다.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.banner .title-font {
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+/* ===== 3. 섬 선택 카테고리 메뉴 ===== */
+.island {
+  background-color: #ffffff;
+  padding: 15px 0;
+  border-bottom: 1px solid #eef2f3;
+}
+
+.island ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+}
+
+.island ul li {
+  padding: 8px 18px;
+  border: 1px solid #dddddd;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #666666;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* 첫 번째 '전체' 탭 선택 스타일 */
+.island ul li:first-child {
+  background-color: #008b8b;
+  color: #ffffff;
+  border-color: #008b8b;
+}
+
+.island ul li:hover {
+  border-color: #008b8b;
+  color: #008b8b;
+}
+
+/* ===== 4. 액티비티 컨텐츠 영역 (세로 확장 및 더보기 버튼 추가) ===== */
+.main-layout {
+  display: flex;
+  gap: 30px;
+}
+
+.activity-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* 타이틀과 더보기 버튼을 양 끝으로 정렬 */
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px; /* 그리드와의 간격 */
+}
+
+/* + 더보기 버튼 스타일 */
+.more-btn {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.more-btn:hover {
+  color: #008b8b;
+}
+
+/* 6개의 칸 Grid */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.activity-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f3;
+  height: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* 카드의 이미지 세로 크기 조절 조절 구역 */
+.activity-card img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 89, 89, 0.15);
+}
+
+/* ===== 5. 여행 준비 체크리스트 섹션 ===== */
+.checklist-section {
+  max-width: 900px;
+  margin: 40px auto 80px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 22px;
+  color: #333333;
+  margin-bottom: 20px;
+  padding-left: 5px;
+  border-left: 4px solid #008b8b;
+}
+
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.check-box-group {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eef2f3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.check-box-group h4 {
+  font-size: 17px;
+  color: #008b8b;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eef2f3;
+  padding-bottom: 10px;
+}
+
+/* 체크박스 정렬 및 레이블 스타일 */
+.check-box-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #444444;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.check-box-group input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #008b8b;
+}
+
+/* 장바구니 구매 링크 스타일 */
+.shop-link {
+  font-size: 12px;
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.shop-link:hover {
+  background-color: #ffeeba;
+}
+
+/* 직접 입력 (추가) 영역 디자인 */
+.add-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.add-item input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-item input[type="text"]:focus {
+  outline: none;
+  border-color: #008b8b;
+}
+
+.add-btn {
+  background-color: #008b8b;
+  color: #ffffff;
+  border: none;
+  padding: 0 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #007070;
+}
+
+@media (max-width: 1000px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .activity-content,
+  .checklist-section {
+    width: 100%;
+  }
+
+  .checklist-container {
+    flex-direction: row;
+    gap: 30px;
+  }
+  .activity-grid {
+    grid-template-columns: repeat(2, 1fr); /* 패드나 작은 화면에서는 가로 2칸 */
+  }
+}
+
+@media (max-width: 600px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .checklist-container {
+    flex-direction: column;
+  }
+  .activity-grid {
+    grid-template-columns: repeat(1, 1fr); /* 모바일 레이아웃에서는 가로 1칸 */
+  }
+}
